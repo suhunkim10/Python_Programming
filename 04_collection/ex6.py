@@ -71,8 +71,23 @@ print(result)
 
 # 1️⃣ 바구니에 있는 과일의 단어 개수 세기
 words = ["apple", "banana", "apple", "cherry", "banana", "apple"]
+
+count = {}
+for word in words:
+    count[word] = count.get(word, 0) + 1
+
+
 res = {val: words.count(val) for val in words}
 print(res)
+
+
+# counter: 요소 갯수를 자동으로 세어주는 딕셔너리 서브클래스
+from collections import Counter
+
+print(Counter(words))
+
+print({word: words.count(word) for word in set(words)})
+
 
 # ✅ {'apple': 3, 'banana': 2, 'cherry': 1}
 
@@ -81,10 +96,6 @@ print(res)
 scores = {"국어": 85, "영어": 50, "수학": 95, "과학": 40, "사회": 72}
 res = {k: "합격" for k, v in scores.items() if v >= 60}
 print(res)
-
-count = {}
-for word in words:
-    count[word] = count.get(word, 0) + 1
 
 # ✅ {'국어': '합격', '수학': '합격', '사회': '합격'}
 
